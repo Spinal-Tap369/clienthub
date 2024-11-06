@@ -1,0 +1,95 @@
+# Python bytecode files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Django migrations (comment out if you want to include them)
+# */migrations/
+
+# Django stuff:
+*.log
+*.pot
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Media files
+media/
+
+# Static files (collected static files)
+staticfiles/
+
+# Virtual environment
+venv/
+env/
+ENV/
+
+# IDE/editor directories and files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# MacOS files
+.DS_Store
+
+# Environment variables file
+.env
+*.env
+
+# Logs
+*.log
+
+# Unit test / coverage reports
+htmlcov/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*,cover
+
+# Celery beat schedule file
+celerybeat-schedule
+
+# MyPy cache
+.mypy_cache/
+
+# Pyre type checker
+.pyre/
+
+# Pytype static type analyzer
+.pytype/
+
+# Test reports
+.junit/
+
+# Cache
+*.cache
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+*.egg
+
+# Pip files
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Sphinx documentation
+docs/_build/
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+
+# Node modules (if using Node.js for frontend)
+node_modules/
+
+# Yarn lock file
+yarn.lock
+
+# Lock files
+poetry.lock
