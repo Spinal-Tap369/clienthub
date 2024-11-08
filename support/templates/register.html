@@ -1,4 +1,75 @@
 {% extends 'base.html' %}
-{% block start %}
-<h2>UC</h2>
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Register New User</h2>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <form method="post" novalidate>
+                        {% csrf_token %}
+                        {{ form.non_field_errors }}
+                        
+                        <div class="mb-3">
+                            {{ form.username.label_tag }}
+                            {{ form.username }}
+                        </div>
+                        <div class="mb-3">
+                            {{ form.password.label_tag }}
+                            {{ form.password }}
+                        </div>
+                        <div class="mb-3">
+                            {{ form.email.label_tag }}
+                            {{ form.email }}
+                        </div>
+                        <div class="mb-3">
+                            {{ form.team.label_tag }}
+                            {{ form.team }}
+                        </div>
+                        <div class="mb-3">
+                            {{ form.mobile.label_tag }}
+                            {{ form.mobile }}
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Search bar and user list -->
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-8">
+            <h3 class="text-center mb-4">Registered Users</h3>
+            <!-- Styled search bar -->
+            <div class="input-group mb-3">
+                <span class="input-group-text"><i class="bi bi-search"></i></span>
+                <input type="text" class="form-control" placeholder="Search users...">
+            </div>
+            <!-- Styled scrollable user list -->
+            <div class="card shadow-sm" style="max-height: 300px; overflow-y: auto;">
+                <ul class="list-group list-group-flush">
+                    {% for profile in profiles %}
+                    <li class="list-group-item">
+                        <div class="d-flex align-items-center">
+                            <div class="me-3">
+                                <i class="bi bi-person-circle" style="font-size: 2em; color: #007bff;"></i>
+                            </div>
+                            <div>
+                                <h6 class="mb-1"><strong>Username:</strong> <span class="text-primary">{{ profile.user.username }}</span></h6>
+                                <p class="mb-1"><strong>Team:</strong> <span class="text-muted">{{ profile.team.name }}</span></p>
+                                <p class="mb-0"><strong>Email:</strong> <span class="text-muted">{{ profile.user.email }}</span></p>
+                            </div>
+                        </div>
+                    </li>
+                    {% empty %}
+                    <li class="list-group-item text-center text-muted">No users found.</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
